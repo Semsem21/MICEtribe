@@ -1,0 +1,41 @@
+:root {
+	--primary: #323a45;
+	--secondary: #3f6184;
+	--light: #778899;
+	--bg: #f6f7f9;
+	--border: #9cacbd;
+	--shiny: #5faeb6;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-transform: capitalize;
+	caret-color: var(--shiny);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+	// min-height: 100dvh;
+}

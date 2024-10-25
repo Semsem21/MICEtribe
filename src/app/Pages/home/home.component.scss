@@ -1,0 +1,169 @@
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100dvh;
+
+	.main {
+		background-color: var(--bg);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+		max-width: 720px;
+		width: 100%;
+		margin: 20px auto;
+		padding: 20px 0;
+		font-size: 22px;
+		border-radius: 10px;
+		box-shadow: 0 0 15px 0 var(--primary);
+		border: 1px solid var(--border);
+
+		h2 {
+			font-weight: bold;
+			font-size: 33px;
+			color: var(--primary);
+		}
+
+		.intro {
+			font-size: 21px;
+			color: var(--light);
+		}
+
+		form {
+			width: 100%;
+			padding: 0 20px;
+			display: grid;
+			gap: 12px;
+			margin-top: 17px;
+
+			.names-section {
+				display: flex;
+				gap: 11px;
+			}
+
+			.normal-input {
+				display: grid;
+				gap: 5px;
+				color: var(--primary);
+				position: relative;
+				width: 100%;
+
+				label {
+					padding-left: 11px;
+					position: relative;
+					width: fit-content;
+					span {
+						position: absolute;
+						top: -3px;
+						right: -7px;
+						font-size: 15px;
+					}
+				}
+
+				input {
+					padding: 10px 7px;
+					border-radius: 9px;
+					font-size: 20px;
+					border: 1px solid var(--border);
+					text-transform: none;
+					&:focus {
+						border-color: var(--secondary);
+						outline: none;
+					}
+				}
+
+				.error {
+					border: 1px solid red;
+				}
+
+				small {
+					position: absolute;
+					left: 50%;
+					bottom: -9px;
+					transform: translateX(-50%);
+					background-image: linear-gradient(to top, var(--bg) 50%, white);
+					pointer-events: none;
+					color: var(--shiny);
+				}
+			}
+
+			.main-radio {
+				h3 {
+					font-size: 22px;
+					color: var(--primary);
+					font-weight: normal;
+					padding-left: 11px;
+				}
+				.radio-section {
+					display: flex;
+					justify-content: space-evenly;
+					font-size: 20px;
+
+					.each-radio {
+						display: flex;
+						gap: 4px;
+
+						label {
+							cursor: pointer;
+						}
+					}
+				}
+			}
+
+			.country {
+				display: flex;
+				gap: 7px;
+				align-items: center;
+				margin: 10px 0;
+				label {
+					font-size: 22px;
+					color: var(--primary);
+					font-weight: normal;
+					padding-left: 11px;
+				}
+				select {
+					flex-grow: 1;
+					margin: 3px 0;
+					padding: 3px 0;
+					text-align: center;
+					font-size: 18px;
+				}
+			}
+
+			.btns {
+				display: flex;
+				gap: 11px;
+				justify-content: center;
+				align-items: flex-end;
+				margin: 14px 0 7px;
+
+				.button {
+					color: var(--primary);
+					font-weight: bold;
+					background-color: white;
+					border: 1px solid var(--border);
+					border-radius: 7px;
+					padding: 3px 15px;
+					font-size: 17px;
+					&:hover {
+						background-color: var(--shiny);
+						border-color: var(--primary);
+					}
+					&:disabled {
+						border-color: var(--light);
+						background-color: transparent;
+						color: var(--light);
+						cursor: not-allowed;
+					}
+				}
+
+				.submit {
+					padding: 9px 23px;
+					font-size: 21px;
+				}
+			}
+		}
+	}
+}

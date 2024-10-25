@@ -1,0 +1,58 @@
+<main>
+	<snackbar [undoMessage]="undoMsg" [confirmationMsg]="confMsg" *ngIf="undoMsg || confMsg" />
+
+	<section class="main">
+		<h2>Welcome &commat; MICEtribe</h2>
+		<p class="intro">Please, Enter Your Dummy Data To Test</p>
+
+		<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+			<section class="names-section">
+				<div class="normal-input" *ngFor="let eachName of nameInput">
+					<label [for]="eachName.control"> {{ eachName.label }} <span>*</span></label>
+					<input type="text" [id]="eachName.control" [formControlName]="eachName.control" [ngClass]="reactiveForm.get(eachName.control)!.dirty && reactiveForm.get(eachName.control)?.invalid ? 'error' : ''" />
+					<small *ngIf="reactiveForm.get(eachName.control)!.invalid && reactiveForm.controls[eachName.control].dirty"> At least 3 Chars</small>
+				</div>
+			</section>
+
+			<section class="normal-input">
+				<label for="email">E. Mail <span>*</span></label>
+				<input type="text" id="email" formControlName="email" [ngClass]="reactiveForm.get('email')!.dirty && reactiveForm.get('email')?.invalid ? 'error' : ''" />
+				<small *ngIf="reactiveForm.get('email')!.invalid && reactiveForm.controls['email'].dirty"> E.Mail Format Is Not Valid </small>
+			</section>
+
+			<section class="main-radio">
+				<h3>Gender</h3>
+				<section class="radio-section">
+					<div class="each-radio" *ngFor="let eachGender of genderInputs">
+						<input type="radio" [value]="eachGender.value" [id]="eachGender.value" formControlName="gender" />
+						<label [for]="eachGender.value">{{ eachGender.label }}</label>
+					</div>
+				</section>
+			</section>
+
+			<section class="country">
+				<label for="country">Your Country: </label>
+				<select id="country" formControlName="country">
+					<option hidden value="null" disabled></option>
+					<option *ngFor="let eachSelect of countryInput">{{ eachSelect }}</option>
+				</select>
+			</section>
+
+			<section class="main-radio">
+				<h3>Nationality :</h3>
+				<section class="radio-section">
+					<div class="each-radio" *ngFor="let eachNationality of nationalityInputs">
+						<input type="radio" [id]="eachNationality.value" [value]="eachNationality.value" formControlName="nationality" />
+						<label [for]="eachNationality.value">{{ eachNationality.value }}</label>
+					</div>
+				</section>
+			</section>
+
+			<section class="btns">
+				<button type="button" class="button" (click)="undo()" [disabled]="!canUndo">Undo</button>
+				<button type="submit" class="submit button" [disabled]="reactiveForm.invalid">Submit</button>
+				<button type="button" class="button" (click)="redo()" [disabled]="!canRedo">Redo</button>
+			</section>
+		</form>
+	</section>
+</main>
